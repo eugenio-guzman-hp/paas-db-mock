@@ -1,0 +1,17 @@
+﻿KPI,Formula,Data Used,Insight / Gap Identified
+Activation Lead Time,Posting Date - Contract Start Date,"Contract Start Date, Posting Date","Measures how quickly contracts become active. Increasing times may indicate provisioning, integration, or operational delays."
+Billing Readiness Delay,Recurring Price Replication to CC Date - Contract Start Date,"Contract Start Date, Recurring Price Replication to CC Date","Identifies delays between activation and billing readiness, helping detect potential revenue leakage."
+Renewal Success Rate (%),(Renewed Contracts ÷ Contracts Eligible for Renewal) × 100,"Contract End Date, Automatic Renewal Date, Technical Status",Measures effectiveness of the renewal process and helps identify retention risks.
+Cancellation Rate (%),(Cancelled Contracts ÷ Total Active Contracts) × 100,"Cancellation Reason, Technical Status, Contract End Date","Tracks contract attrition and highlights potential product, customer, or process issues."
+Change Order Processing Time,Completed Date - Start Date,"Change Order Start Date, Completed Date",Measures operational efficiency and identifies process types requiring excessive handling time.
+Change Order Rejection Rate (%),(Rejected Change Orders ÷ Total Change Orders) × 100,"Rejection Status, Process Type","High rates can indicate training issues, workflow gaps, or poor upstream data quality."
+Technical Activation Delay,Contract Start Date - HWI Date,"HWI Date, Contract Start Date",Measures delay between commercial approval and technical fulfillment.
+Contracts Approaching Expiration,Count(Contract End Date within next X days),Contract End Date,Provides visibility into upcoming renewal workload and capacity planning.
+Contracts in Grace Period (Informational),Count(Contracts where Today ≤ End of Grace Period Date),"End of Grace Period Date, Technical Status",Provides visibility into the current contract population in grace period. Useful for understanding lifecycle distribution.
+Grace Period Population Trend,Current Period Grace Period Contracts - Previous Period Grace Period Contracts,"End of Grace Period Date, Technical Status",Detects increasing or decreasing grace period populations that may warrant investigation.
+Status Integrity Rate (%),(Contracts with Valid Lifecycle Statuses ÷ Total Contracts) × 100,"Technical Status, Contract Start Date, Contract End Date, End of Grace Period Date",Measures data and process quality by identifying unexpected status combinations.
+Contract Account Lock Rate (%),(Locked Contract Accounts ÷ Total Contract Accounts) × 100,"Contract Account Locks, Contract Account Status",Monitors contract account restrictions that could indicate billing or account management issues.
+Missing Billing Replication Rate (%),(Activated Contracts Missing Replication Date ÷ Activated Contracts) × 100,"Contract Start Date, Recurring Price Replication to CC Date",Identifies activated contracts not fully propagated to billing systems.
+Billing Cycle Integrity Rate % (Informational),Billing Cycle Type matches Contract Start Date,Billing Cycle Type,Helps identify Billing Cycle integrity.
+Contracts by Billing Cycle (Informational),Count by Billing Cycle Type,Billing Cycle Type,Helps understand operational workload distribution and customer portfolio composition.
+Top Cancellation Reasons (Informational),Count by Cancellation Reason,Cancellation Reason,Identifies recurring causes of contract termination and opportunities for process improvement.
