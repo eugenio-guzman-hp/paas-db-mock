@@ -1,8 +1,5 @@
 const MONTH_KEYS = [
-  '2025-01', '2025-02', '2025-03', '2025-04', '2025-05', '2025-06',
-  '2025-07', '2025-08', '2025-09', '2025-10', '2025-11', '2025-12',
-  '2026-01', '2026-02', '2026-03', '2026-04', '2026-05', '2026-06',
-  '2026-07', '2026-08', '2026-09',
+  '2026-02', '2026-03', '2026-04', '2026-05', '2026-06', '2026-07',
 ]
 
 const CANCEL_REASONS = [
@@ -51,17 +48,17 @@ function buildMonthlySnapshots() {
 
     return {
       month,
-      activationLeadTime: round(series(index, 8.6, 12.5, 0.55)),
-      billingReadinessDelay: round(series(index, 4.8, 6.3, 0.35)),
-      cancellationRate: round(series(index, 2.0, 3.6, 0.18)),
-      changeOrderProcessingTime: round(series(index, 4.3, 5.3, 0.28)),
-      changeOrderRejectionRate: round(series(index, 6.2, 8.4, 0.45)),
-      technicalActivationDelay: round(series(index, 3.0, 3.9, 0.22)),
-      contractsInGracePeriod: Math.round(series(index, 36, 62, 6)),
-      statusIntegrityRate: round(series(index, 99.3, 98.5, 0.18)),
-      contractAccountLockRate: round(series(index, 1.1, 1.8, 0.14)),
-      missingBillingReplicationRate: round(series(index, 0.6, 1.9, 0.2)),
-      billingCycleIntegrityRate: round(series(index, 99.4, 98.8, 0.12)),
+      activationLeadTime: round(series(index, 11.2, 12.4, 0.15)),
+      billingReadinessDelay: round(series(index, 5.8, 6.4, 0.12)),
+      cancellationRate: round(series(index, 2.8, 3.5, 0.08)),
+      changeOrderProcessingTime: round(series(index, 4.9, 5.4, 0.1)),
+      changeOrderRejectionRate: round(series(index, 7.5, 8.3, 0.15)),
+      technicalActivationDelay: round(series(index, 3.5, 3.9, 0.08)),
+      contractsInGracePeriod: Math.round(series(index, 51, 60, 2)),
+      statusIntegrityRate: round(series(index, 98.9, 98.6, 0.06)),
+      contractAccountLockRate: round(series(index, 1.5, 1.8, 0.05)),
+      missingBillingReplicationRate: round(series(index, 1.3, 1.8, 0.08)),
+      billingCycleIntegrityRate: round(series(index, 99.1, 98.9, 0.04)),
       cancellationReasons: Object.fromEntries(
         CANCEL_REASONS.map((label, i) => [label, reasonShares[i]]),
       ),
@@ -176,14 +173,13 @@ export const KPI_CATALOG = [
 ]
 
 export const PRESETS = [
-  { id: '30d', label: '30D', from: '2026-08-19', to: '2026-09-18' },
-  { id: '90d', label: '90D', from: '2026-06-20', to: '2026-09-18' },
-  { id: '6m', label: '6M', from: '2026-03-19', to: '2026-09-18' },
-  { id: 'ytd', label: 'YTD', from: '2026-01-01', to: '2026-09-18' },
-  { id: 'fy25', label: 'FY25', from: '2025-01-01', to: '2025-12-31' },
+  { id: 'may', label: 'May', from: '2026-05-01', to: '2026-05-31' },
+  { id: 'jun', label: 'Jun', from: '2026-06-01', to: '2026-06-30' },
+  { id: 'jul', label: 'Jul', from: '2026-07-01', to: '2026-07-31' },
+  { id: 'all', label: 'May–Jul', from: '2026-05-01', to: '2026-07-31' },
 ]
 
-export const DEFAULT_RANGE = { from: '2026-03-19', to: '2026-09-18' }
+export const DEFAULT_RANGE = { from: '2026-05-01', to: '2026-07-31' }
 
 function monthStart(key) {
   return `${key}-01`
