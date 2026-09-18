@@ -32,7 +32,7 @@ function HpMark() {
   return (
     <img
       className="hp-mark"
-      src="/HP_logo_2012.svg.webp"
+      src={`${import.meta.env.BASE_URL}HP_logo_2012.svg.webp`}
       alt="HP"
     />
   )
