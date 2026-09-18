@@ -142,7 +142,7 @@ export default function App() {
           <label>
             <input
               type="date"
-              min="2026-05-01"
+              min="2026-01-01"
               max={to}
               value={from}
               onChange={(event) => setFrom(event.target.value)}
@@ -152,7 +152,7 @@ export default function App() {
             <input
               type="date"
               min={from}
-              max="2026-07-31"
+              max="2026-12-31"
               value={to}
               onChange={(event) => setTo(event.target.value)}
             />

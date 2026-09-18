@@ -1,5 +1,6 @@
 const MONTH_KEYS = [
-  '2026-02', '2026-03', '2026-04', '2026-05', '2026-06', '2026-07',
+  '2026-01', '2026-02', '2026-03', '2026-04', '2026-05', '2026-06',
+  '2026-07', '2026-08', '2026-09', '2026-10', '2026-11', '2026-12',
 ]
 
 const CANCEL_REASONS = [
@@ -48,17 +49,17 @@ function buildMonthlySnapshots() {
 
     return {
       month,
-      activationLeadTime: round(series(index, 11.2, 12.4, 0.15)),
-      billingReadinessDelay: round(series(index, 5.8, 6.4, 0.12)),
-      cancellationRate: round(series(index, 2.8, 3.5, 0.08)),
-      changeOrderProcessingTime: round(series(index, 4.9, 5.4, 0.1)),
-      changeOrderRejectionRate: round(series(index, 7.5, 8.3, 0.15)),
-      technicalActivationDelay: round(series(index, 3.5, 3.9, 0.08)),
-      contractsInGracePeriod: Math.round(series(index, 51, 60, 2)),
-      statusIntegrityRate: round(series(index, 98.9, 98.6, 0.06)),
-      contractAccountLockRate: round(series(index, 1.5, 1.8, 0.05)),
-      missingBillingReplicationRate: round(series(index, 1.3, 1.8, 0.08)),
-      billingCycleIntegrityRate: round(series(index, 99.1, 98.9, 0.04)),
+      activationLeadTime: round(series(index, 10.4, 12.5, 0.35)),
+      billingReadinessDelay: round(series(index, 5.4, 6.5, 0.2)),
+      cancellationRate: round(series(index, 2.4, 3.5, 0.12)),
+      changeOrderProcessingTime: round(series(index, 4.6, 5.4, 0.15)),
+      changeOrderRejectionRate: round(series(index, 6.8, 8.4, 0.25)),
+      technicalActivationDelay: round(series(index, 3.3, 3.9, 0.12)),
+      contractsInGracePeriod: Math.round(series(index, 44, 61, 4)),
+      statusIntegrityRate: round(series(index, 99.1, 98.6, 0.1)),
+      contractAccountLockRate: round(series(index, 1.3, 1.8, 0.08)),
+      missingBillingReplicationRate: round(series(index, 1.0, 1.8, 0.12)),
+      billingCycleIntegrityRate: round(series(index, 99.2, 98.9, 0.06)),
       cancellationReasons: Object.fromEntries(
         CANCEL_REASONS.map((label, i) => [label, reasonShares[i]]),
       ),
@@ -173,13 +174,14 @@ export const KPI_CATALOG = [
 ]
 
 export const PRESETS = [
-  { id: 'may', label: 'May', from: '2026-05-01', to: '2026-05-31' },
-  { id: 'jun', label: 'Jun', from: '2026-06-01', to: '2026-06-30' },
-  { id: 'jul', label: 'Jul', from: '2026-07-01', to: '2026-07-31' },
-  { id: 'all', label: 'May–Jul', from: '2026-05-01', to: '2026-07-31' },
+  { id: '30d', label: '30D', from: '2026-08-19', to: '2026-09-18' },
+  { id: '90d', label: '90D', from: '2026-06-20', to: '2026-09-18' },
+  { id: '6m', label: '6M', from: '2026-03-19', to: '2026-09-18' },
+  { id: 'ytd', label: 'YTD', from: '2026-01-01', to: '2026-09-18' },
+  { id: 'fy26', label: 'FY26', from: '2026-01-01', to: '2026-12-31' },
 ]
 
-export const DEFAULT_RANGE = { from: '2026-05-01', to: '2026-07-31' }
+export const DEFAULT_RANGE = { from: '2026-03-19', to: '2026-09-18' }
 
 function monthStart(key) {
   return `${key}-01`
